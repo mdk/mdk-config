@@ -1,0 +1,45 @@
+MAILDIR=$HOME/mail
+DEFAULT=$MAILDIR/
+LOGFILE=$HOME/procmail_log
+
+:0
+* ^Subject: .*\[Bug .*\]
+bugzilla/
+
+# Various mailing list formats
+
+:0
+* ^X-Mailing-List-Name: \/[^@]+
+list.`echo $MATCH | sed -e 's/[\/]/_/g'`/
+
+:0
+* ^Sender: owner-\/[^@]+
+list.`echo $MATCH | sed -e 's/[\/]/_/g'`/
+
+:0
+* ^X-BeenThere: \/[^@]+
+list.`echo $MATCH | sed -e 's/[\/]/_/g'`/
+
+:0
+* ^Delivered-To: mailing list \/[^@]+
+list.`echo $MATCH | sed -e 's/[\/]/_/g'`/
+
+:0
+* ^X-Mailing-List: <\/[^@]+
+list.`echo $MATCH | sed -e 's/[\/]/_/g'`/
+
+:0
+* ^X-Loop: \/[^@]+
+list.`echo $MATCH | sed -e 's/[\/]/_/g'`/
+
+:0
+* ^X-List-ID: <\/[^@\.]+
+list.`echo $MATCH | sed -e 's/[\/]/_/g'`/
+
+:0
+* ^X-list: \/[^@\.]+
+list.`echo $MATCH | sed -e 's/[\/]/_/g'`/
+
+:0
+* ^List-ID: <\/[^@\.]+
+list.`echo $MATCH | sed -e 's/[\/]/_/g'`/

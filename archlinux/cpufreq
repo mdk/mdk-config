@@ -1,0 +1,12 @@
+#configuration for cpufreq control
+
+# valid governors:
+#  ondemand, performance, powersave,
+#  conservative, userspace
+governor="performance"
+governor="powersave"
+governor="ondemand"
+
+# valid suffixes: Hz, kHz (default), MHz, GHz, THz
+min_freq="0.6GHz"
+max_freq="1.2GHz"

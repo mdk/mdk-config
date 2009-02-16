@@ -1,0 +1,81 @@
+set nocompatible
+set nobackup
+set nowritebackup
+set autowrite
+
+set expandtab 
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set cindent
+
+set autoindent
+set smartindent
+
+syntax on
+set showmatch
+
+set ruler
+set hlsearch
+set incsearch
+
+set foldmethod=syntax
+
+" Changelog
+autocmd FileType changelog call ChangeLogSettings()
+function! ChangeLogSettings()
+        let g:changelog_username = 'Michael Dominic K.  <michaldominik@gmail.com>'
+endfunction
+
+" Wrapper to set tabs to four spaces
+function! FourTabs()
+        set tabstop=4
+        set softtabstop=4
+        set shiftwidth=4
+endfunction
+
+" Wrapper to set tabs to two spaces
+function! TwoTabs()
+        set tabstop=2
+        set softtabstop=2
+        set shiftwidth=2
+endfunction
+
+" Wrapper to set tabs to eight spaces
+function! EightTabs()
+        set tabstop=8
+        set softtabstop=8
+        set shiftwidth=8
+endfunction
+
+
+" Pressing C-N twice toggles line number
+:nmap <C-N><C-N> :set invnumber <CR> 
+
+" Custom filetypes
+au BufNewFile,BufRead SConstruct set ft=python
+au BufNewFile,BufRead SConscript set ft=python
+
+" ASCII abbreviations
+:ab /l ///////////////////////////////////////////////////////////////
+:ab #l ###############################################################
+:ab /p // Properties /////////////////////////////////////////////////
+:ab /f // Fields /////////////////////////////////////////////////////
+:ab /m // Methods ////////////////////////////////////////////////////
+
+" Bufferlist
+map <silent> <F3> :call BufferList()<CR>
+
+" Disabled by certain distros for totally strange seasons
+set backspace=2
+set mouse=c
+
+" Boo syntax
+au! BufRead,BufNewFile *.boo setfiletype boo
+
+" Markdown
+au! BufRead,BufNewFile *.mkd setfiletype mkd
+
+" When editing emails, limit to 72 chars
+au BufRead /tmp/mutt-* set tw=72
+

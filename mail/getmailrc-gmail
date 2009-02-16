@@ -1,0 +1,9 @@
+[retriever]
+type = SimpleIMAPRetriever
+server = imap.gmail.com
+username = michaldominik@gmail.com
+password = ****
+
+[destination]
+type = MDA_external
+path = /usr/bin/procmail

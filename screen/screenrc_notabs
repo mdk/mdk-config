@@ -1,0 +1,26 @@
+# Make screen message stand-out
+sorendition "+b Wr"
+
+# Disable messaging
+startup_message off
+
+# Log new screen windows in utmp.
+deflogin on
+
+# Never, ever turn this off.
+autodetach on
+
+# Keep dead windows around until I tell them to exit.
+zombie cr
+
+# And show the command for the windows when they're resurrected.
+verbose on
+
+# Escape key is C-z.  (I use C-a too much)
+escape ^zz
+
+# I like a large scrollback
+defscrollback 5000
+
+# If a window goes unresponsive, don't block the whole session waiting for it.
+nonblock on

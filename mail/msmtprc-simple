@@ -1,0 +1,8 @@
+account default
+host mail.server.com
+from somebody@domain.com
+auth off
+user somebody
+password *******
+tls off
+     

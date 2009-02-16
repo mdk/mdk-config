@@ -1,0 +1,23 @@
+[general]
+accounts = mdk
+ui = TTY.TTYUI
+# or ui = Curses.Blinkenlights
+
+[Account mdk]
+localrepository = mdk_local 
+remoterepository = mdk_remote
+# autorefresh = 5
+
+[Repository mdk_local]
+type = Maildir 
+localfolders = ~/Mail
+
+[Repository mdk_remote]
+type = IMAP 
+remotehost = imap.gmail.com
+ssl = yes
+remoteport = 993
+remoteuser = michaldominik@gmail.com
+remotepass = ********
+# or to be asked for it: remotepass = 
+
