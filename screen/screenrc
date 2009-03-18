@@ -1,3 +1,6 @@
+# No visual blink
+vbell off
+
 # Make screen messages stand out a little more
 sorendition "+b Wr"
 
