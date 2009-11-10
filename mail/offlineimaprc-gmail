@@ -1,23 +1,55 @@
 [general]
-accounts = mdk
+accounts = new_wild,me,codethink
 ui = TTY.TTYUI
 # or ui = Curses.Blinkenlights
-
-[Account mdk]
-localrepository = mdk_local 
-remoterepository = mdk_remote
+ 
+[Account new_wild]
+localrepository = new_wild_local 
+remoterepository = new_wild_remote
 # autorefresh = 5
 
-[Repository mdk_local]
-type = Maildir 
-localfolders = ~/Mail
+[Account me]
+localrepository = me_local 
+remoterepository = me_remote
+# autorefresh = 5
 
-[Repository mdk_remote]
+[Account codethink]
+localrepository = codethink_local 
+remoterepository = codethink_remote
+# autorefresh = 5
+ 
+[Repository new_wild_local]
+type = Maildir 
+localfolders = ~/Mail/NewWild
+ 
+[Repository new_wild_remote]
 type = IMAP 
-remotehost = imap.gmail.com
+remotehost = homie.mail.dreamhost.com
 ssl = yes
 remoteport = 993
-remoteuser = michaldominik@gmail.com
-remotepass = ********
-# or to be asked for it: remotepass = 
+remoteuser = mdk@new-wild.com
+remotepass = ***
 
+[Repository me_local]
+type = Maildir 
+localfolders = ~/Mail/Me
+ 
+[Repository me_remote]
+type = IMAP 
+remotehost = mail.me.com
+ssl = yes
+remoteport = 993
+remoteuser = mdk@me.com
+remotepass = ***
+
+[Repository codethink_local]
+type = Maildir 
+localfolders = ~/Mail/Codethink
+ 
+[Repository codethink_remote]
+type = IMAP 
+remotehost = mail.codethink.co.uk
+ssl = yes
+remoteport = 993
+remoteuser = mdk
+remotepass = ***
