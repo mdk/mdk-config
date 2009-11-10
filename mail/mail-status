@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+# Michael Dominic K. <mdk@mdk.am>
+# Prints a colorfull mail status
+
+def parse_dir(dir_name)
+  count = 0
+
+  Dir.open(dir_name).each { |entry|
+    full_path = File.join(dir_name, entry)
+    
+    next if entry == "." or entry == ".."
+    if File.ftype(full_path) == "directory"
+      parse_dir(full_path)
+    else 
+      count += 1 if dir_name =~ /new$/
+    end
+  }
+
+  puts "  * #{dir_name} [\033[1;33m#{count}\033[0m]" if count > 0
+end
+
+puts "Unread mail:"
+mail_dir = File.join(ENV['HOME'], 'Mail')
+parse_dir(mail_dir)
+
