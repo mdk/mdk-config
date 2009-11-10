@@ -1,131 +1,129 @@
 # General directories and files ###########################
-
+ 
 set certificate_file="~/.mutt/certificates"
 set signature="~/.mutt/signature"
-
+ 
 # Reading mail ############################################
-
+ 
 # Default character set if not specified?
 set charset=utf-8
-
+ 
 # Page-down at the end of a message should not go to the next message.
 set pager_stop
-
+ 
 # Defaults for asking when moving mail around
 set move = no
 set copy = yes
 set delete = yes
 set noconfirmappend
-
+ 
 # Don't mark "new" mails as old
 unset mark_old
-
+ 
 # Macros for deleting. Not sure if needed anymore
 # macro index d " sMail/trash\n"
 # macro pager d " sMail/trash\n"
 # bind index D delete-message
 # bind pager D delete-message
-
+ 
 # Show pager context while reading
 set pager_index_lines=9
-
+ 
 # Sending mail ############################################
-
+ 
 set editor = "vim"
 set send_charset = "Default: iso-8859-1:iso-8859-2:utf-8"
 set ispell="aspell -e -c -l en"
-
+ 
 set sendmail="/usr/bin/msmtp"
-
+ 
 set use_from=yes
 set reverse_name=yes
 set reverse_realname=no
 set include=yes
-
+ 
 set indent_str="> "
-
+ 
 # Personal config #########################################
-
+ 
 set realname="Michael Dominic K."
 set from="mdk@mdk.am"
-
+ 
 # Spool and Maildir settings ##############################
-
+ 
 set mbox_type=Maildir
 set folder=~/Mail
-set spoolfile=+INBOX
+set spoolfile=+Me/INBOX
 unset record
-set postponed="+[Gmail].Drafts"
-mailboxes +INBOX
-
+set postponed="+INBOX.Drafts"
+mailboxes +Me/INBOX +NewWild/INBOX +Codethink/INBOX
+ 
 # Keybindings #############################################
-
+ 
 # Run offlineimap by hitting G
 # macro index G "!offlineimap\r"
 # macro pager G "!offlineimap\r"
-
+ 
 # Show mail status by hitting S
 # macro index S "!mail-status\r"
 # macro pager S "!mail-status\r"
-
+ 
 # Formatting and view #####################################
-
+ 
 set sort=threads
 # showing mbox list default to newest first
 set sort_browser=reverse-date 
 # showing threads with youngest message last
 set sort_aux=last-date-received 
-
+ 
 auto_view text/html
-
+ 
 # Headers configuration
 ignore *
 unignore from subject cc date to
 unignore x-url x-resent organization organisation 
 unignore user-agent: x-agent: x-mailer:  
 hdr_order From: Date: To: Cc: Subject: X-Mailer: X-Agent:
-
+ 
 # Mail index format
 set index_format = "%Z %{%b %d} %-30.30L %s %> %E"
-
+ 
 # Hide the autoview banner
-set display_filter="~/bin/strip.sh"
+# set display_filter="~/bin/strip.sh"
 
 # Colors ##################################################
-
+ 
 # Managing mail/index
-color normal white black
-color bold brightwhite black
-color markers magenta black
+color normal white default
+color bold brightwhite default
+color markers magenta default
 color status black cyan
 color indicator black white
-color tree red black
-color error brightred black
-
+color tree red default
+color error brightred default
+ 
 # Items in the index
-color index brightgreen black ~N
-color index brightgreen black ~O
-color index blue black ~D
-color index blue black ~Q
-color index magenta black ~T
-color index brightred black ~F
-
+color index brightgreen default ~N
+color index brightgreen default ~O
+color index blue default ~D
+color index blue default ~Q
+color index magenta default ~T
+color index brightred default ~F
+ 
 # Reader
-color hdrdefault green black
-color message white black
-color quoted cyan black
-color signature green black
-color attachment yellow black
-color search brightwhite black
-color tilde cyan black
-
+color hdrdefault green default
+color message white default
+color quoted cyan default
+color signature green default
+color attachment yellow default
+color search brightwhite default
+color tilde cyan default
+ 
 # Headers
-color header brightgreen black "^(Subject):"
-color header blue black "^X-Spammer:"
-
+color header brightgreen default "^(Subject):"
+color header blue default "^X-Spammer:"
+ 
 # Body - URL and adresses
-color body brightblue black "(http|https|ftp|telnet|finger)://[^ \">\t\r\n]*"
-color body cyan black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-color body cyan black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
-
-
+color body brightblue default "(http|https|ftp|telnet|finger)://[^ \">\t\r\n]*"
+color body cyan default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body cyan default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
